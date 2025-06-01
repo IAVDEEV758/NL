@@ -22,54 +22,39 @@ setInterval(changeText, 2000);
 changeText(); // Чтобы сразу отобразился первый текст
 
 document.addEventListener('DOMContentLoaded', () => {
-  const modal = document.getElementById('galleryModal');
-  const modalImage = document.getElementById('modalImage');
-  const closeButton = document.querySelector('.close-button');
-  const galleryImages = document.querySelectorAll('.gallery-row img');
+            const modal = document.getElementById('modal');
+            const modalImg = document.getElementById('modalImg');
+            const closeBtn = document.querySelector('.close');
 
-  galleryImages.forEach(image => {
-    image.addEventListener('click', () => {
-      console.log('Image clicked:', image.src); // Отладка
-      // Открываем модальное окно
-      modal.style.display = 'flex';
-      modalImage.src = image.src;
-      modalImage.alt = image.alt;
+            if (!modal || !modalImg || !closeBtn) {
+                console.error('Modal elements not found');
+                return;
+            }
 
-      // Останавливаем анимацию в соответствующей строке галереи
-      const galleryRow = image.closest('.gallery-row');
-      galleryRow.classList.add('paused');
-      console.log('Paused row:', galleryRow.className); // Отладка
-    });
-  });
+            document.querySelectorAll('.gallery img').forEach(img => {
+                img.addEventListener('click', () => {
+                    console.log('Image clicked:', img.src);
+                    modal.style.display = 'flex'; // Используем flex для центрирования
+                    modalImg.src = img.src;
+                    setTimeout(() => {
+                        modal.classList.add('active'); // Запускаем анимацию
+                    }, 10); // Небольшая задержка для корректного старта анимации
+                });
+            });
 
-  const resumeAnimation = () => {
-    modal.style.display = 'none';
-    modalImage.src = '';
-    modalImage.alt = '';
+            closeBtn.addEventListener('click', () => {
+                modal.classList.remove('active'); // Убираем класс для анимации закрытия
+                setTimeout(() => {
+                    modal.style.display = 'none'; // Скрываем модальное окно после анимации
+                }, 300); // Время должно совпадать с длительностью transition
+            });
 
-    // Возобновляем анимацию для всех строк галереи
-    document.querySelectorAll('.gallery-row').forEach(row => {
-      if (row.classList.contains('paused')) {
-        row.classList.remove('paused');
-        // Принудительно перезапускаем анимацию
-        const track = row.querySelector('.track');
-        track.style.animation = 'none';
-        void track.offsetWidth; // Триггер reflow
-        if (row.classList.contains('left')) {
-          track.style.animation = 'scroll-left 15s linear infinite';
-        } else if (row.classList.contains('right')) {
-          track.style.animation = 'scroll-right 15s linear infinite';
-        }
-        console.log('Resumed animation for row:', row.className); // Отладка
-      }
-    });
-  };
-
-  closeButton.addEventListener('click', resumeAnimation);
-
-  modal.addEventListener('click', (event) => {
-    if (event.target === modal) {
-      resumeAnimation();
-    }
-  });
-});
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                    setTimeout(() => {
+                        modal.style.display = 'none';
+                    }, 300);
+                }
+            });
+        });
