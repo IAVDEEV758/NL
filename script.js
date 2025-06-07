@@ -58,3 +58,65 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         });
+
+         // Плавная прокрука
+    document.querySelectorAll('.main-nav a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 70, // Adjust for fixed nav height
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Hamburger menu toggle
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      hamburger.classList.toggle('active');
+    });
+
+    // Close menu when clicking a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        hamburger.classList.remove('active');
+      });
+    });
+
+    // Gallery modal functionality
+    const modal = document.getElementById('imageModal');
+    const modalImg = modal.querySelector('img');
+    const closeBtn = modal.querySelector('.close-button');
+    
+    document.querySelectorAll('.gallery img').forEach(img => {
+      img.addEventListener('click', () => {
+        modal.style.display = 'flex';
+        modalImg.src = img.src;
+        modal.classList.add('active');
+      });
+    });
+
+    closeBtn.addEventListener('click', () => {
+      modal.classList.remove('active');
+      setTimeout(() => {
+        modal.style.display = 'none';
+      }, 300);
+    });
+
+    // Pause gallery animation on hover
+    document.querySelectorAll('.gallery-row').forEach(row => {
+      row.addEventListener('mouseenter', () => {
+        row.classList.add('paused');
+      });
+      row.addEventListener('mouseleave', () => {
+        row.classList.remove('paused');
+      });
+    });
