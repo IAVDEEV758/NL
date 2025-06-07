@@ -40,32 +40,65 @@ body {
   color: #4a90e2;
 }
 
-.hamburger {
+.menu-toggle {
+  display: none;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  font-size: 1.5rem;
+  z-index: 1000;
+}
+
+.mobile-nav {
   display: none;
   flex-direction: column;
-  justify-content: space-between;
-  width: 30px;
-  height: 20px;
+  position: fixed;
+  top: 60px;
+  left: 0;
+  background: #fff;
+  width: 200px;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.3);
+  z-index: 999;
+}
+
+.mobile-nav.active {
+  display: flex;
+}
+
+/* Показываем кнопку на узких экранах */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  nav ul {
+    display: none; /* скрыть обычное меню */
+  }
+
+  .mobile-nav ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .mobile-nav li {
+    padding: 10px;
+  }
+}
+
+
+/* Кнопка открытия меню */
+.menu-btn {
+  font-size: 30px;
   cursor: pointer;
+  color: #111;
+  padding: 10px;
 }
 
-.hamburger span {
-  width: 100%;
-  height: 3px;
-  background-color: #ffffff;
-  transition: all 0.3s ease;
-}
-
-.hamburger.active span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-
-.hamburger.active span:nth-child(2) {
-  opacity: 0;
-}
-
-.hamburger.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(7px, -7px);
+/* Адаптивность для мобильных устройств */
+@media screen and (max-width: 600px) {
+  .menu-btn {
+    display: block;
+  }
 }
 
 .nav-links {
@@ -324,6 +357,14 @@ body {
   color: #555;
   line-height: 1.6;
 }
+
+.about-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+
 
 .services-section {
   display: flex;

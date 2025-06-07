@@ -133,3 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
         row.classList.remove('paused');
       });
     });
+
+function toggleMenu() {
+    document.querySelector('.mobile-nav').classList.toggle('active');
+  }

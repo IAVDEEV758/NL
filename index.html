@@ -5,16 +5,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="module" src="script.js"></script>
   </head>
   <body>
+<button class="menu-toggle" onclick="toggleMenu()">☰ Меню</button>
+<nav class="mobile-nav">
+  <ul>
+    <li><a href="#home">Главная</a></li>
+    <li><a href="#about">О нас</a></li>
+    <li><a href="#services">Услуги</a></li>
+    <li><a href="#contact">Контакты</a></li>
+  </ul>
+</nav>
+
+
     <nav class="main-nav">
       <div class="nav-content">
-        <div class="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
         <a href="#home">Главная</a>
         <a href="#about">О нас</a>
         <a href="#gallery">Галерея</a>
@@ -171,11 +178,6 @@
     <span class="close">&times;</span>
     <img class="modal-content" id="modalImg">
 </div>
- <div id="imageModal" class="modal">
-    <div class="modal-content">
-      <span class="close-button">×</span>
-      <img src="" alt="Увеличенное изображение">
-    </div>
   </div>
   </body>
 </html>
