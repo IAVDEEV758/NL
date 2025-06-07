@@ -3,35 +3,27 @@
   <head>
     <title>Лендинг</title>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="styles.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="module" src="script.js"></script>
+    <script src="script.js" defer></script>
   </head>
   <body>
-<button class="menu-toggle" onclick="toggleMenu()">☰ Меню</button>
-<nav class="mobile-nav">
-  <ul>
-    <li><a href="#home">Главная</a></li>
-    <li><a href="#about">О нас</a></li>
-    <li><a href="#services">Услуги</a></li>
-    <li><a href="#contact">Контакты</a></li>
-  </ul>
+<nav class="main-nav">
+  <div class="nav-content">
+     <div class="mobile-brand">NL студия маникюра</div>
+    <span class="menu-btn hamburger"></span>
+    <ul class="nav-links">
+  <li><a href="#home">Главная</a></li>
+  <li><a href="#about">О нас</a></li>
+  <li><a href="#gallery">Галерея</a></li>
+  <li><a href="#services">Услуги и Товары</a></li>
+  <li><a href="#contact">Контакты</a></li>
+  <li><a href="https://mst.link/nailschoolksk" class="cta-button">Записаться</a></li>
+</ul>
+  </div>
 </nav>
 
-
-    <nav class="main-nav">
-      <div class="nav-content">
-        <a href="#home">Главная</a>
-        <a href="#about">О нас</a>
-        <a href="#gallery">Галерея</a>
-        <a href="#services">Услуги и Товары</a>
-        <a href="#contact">Контакты</a>
-        <a href="https://mst.link/nailschoolksk" class="cta-button">Записаться</a>
-      </div>
-    </nav>
-
-    <div id="home" class="hero-section">
+        <div id="home" class="hero-section">
       <video class="background-video" autoplay muted loop playsinline>
         <source src="undefined-1080(1).mp4" type="video/mp4">
       </video>
@@ -43,9 +35,6 @@
       <a href="https://mst.link/nailschoolksk" class="cta-button">Записаться</a>
     </div>
     </div>
-
-
-
       <section id="about" class="about-section">
         <div class="about-container">
           <div class="about-collage">
@@ -136,11 +125,13 @@
       <div class="services-right">
         <h3>Товары</h3>
         <ul>
-          <li><span class="service-name">Лаки для ногтей</span><span class="price">300 ₽</span><a href="#buy" class="buy-button">Купить</a></li>
-          <li><span class="service-name">Уходовые средства</span><span class="price">500 ₽</span><a href="#buy" class="buy-button">Купить</a></li>
-          <li><span class="service-name">Инструменты для маникюра</span><span class="price">700 ₽</span><a href="#buy" class="buy-button">Купить</a></li>
-          <li><span class="service-name">Гель-лаки</span><span class="price">400 ₽</span><a href="#buy" class="buy-button">Купить</a></li>
-          <li><span class="service-name">Аксессуары</span><span class="price">200 ₽</span><a href="#buy" class="buy-button">Купить</a></li>
+          <li><span class="service-name">Топ без липкого слоя</span><span class="price">511 ₽</span><a href="https://ozon.ru/t/DLEpJaJ" class="buy-button">Купить</a></li>
+          <li><span class="service-name">Каучуковая база 50мл</span><span class="price">1282 ₽</span><a href="https://ozon.ru/t/AsuwRkb" class="buy-button">Купить</a></li>
+          <li><span class="service-name">Гель-Желе тиксотропный #01 </span><span class="price">628 ₽</span><a href="https://ozon.ru/t/1WHrr5q" class="buy-button">Купить</a></li>
+          <li><span class="service-name">Набор 6 шт. Светоотражающий гель лак</span><span class="price">1006 ₽</span><a href="https://ozon.ru/t/3lb4UxC" class="buy-button">Купить</a></li>
+          <li><span class="service-name">Жидкий полигель Voyage, 15мл</span><span class="price">624 ₽</span><a href="https://ozon.ru/t/J2dso61" class="buy-button">Купить</a></li>
+          <li><span class="service-name">Гель-лак для ногтей светоотражающий</span><span class="price">416 ₽</span><a href="https://ozon.ru/t/3lb4Rfb" class="buy-button">Купить</a></li>
+          <li><span class="service-name">И многое другое</span><span class="price"></span>
         </ul>
       </div>
     </div>
@@ -174,10 +165,12 @@
       <p>© 2025 NL Студия Маникюра. Все права защищены.</p>
     </div>
   </footer>
-  <div id="modal" class="modal">
-    <span class="close">&times;</span>
-    <img class="modal-content" id="modalImg">
-</div>
+ <div id="imageModal" class="modal">
+    <div class="modal-content">
+      <span class="close-button">&times;</span>
+      <img src="" alt="Modal Image">
+    </div>
+  </div>
   </div>
   </body>
 </html>
